@@ -21,8 +21,8 @@ async function init() {
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'postgres',
-      password: 'rizkymr',
+      username: 'testing',
+      password: '',
       database: 'sanbercode2',
     });
     console.log('database connected');

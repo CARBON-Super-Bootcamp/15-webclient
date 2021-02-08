@@ -10,6 +10,7 @@ const subscriber = require('./performance/nats-sub');
  * @returns {Promise<void>}
  */
 async function main(command) {
+  console.log(command)
   switch (command) {
     case 'task':
       await connection.authenticate(); //db relational connect
