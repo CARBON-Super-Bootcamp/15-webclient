@@ -1,5 +1,9 @@
-const { dispatch } = require('rxjs/internal/observable/pairs');
-const { fetchTasksApi, addTaskApi, doneTaskApi, undoneTaskApi } = require('../api/todo-service');
+const {
+  fetchTasksApi,
+  addTaskApi,
+  doneTaskApi,
+  undoneTaskApi,
+} = require('./api/todo-service');
 const {
   addAction,
   doneAction,
@@ -8,9 +12,7 @@ const {
 } = require('./store');
 
 const addTaskAsync = (task) => async (dispatch, getState) => {
-  console.log('task asyn')
   const taskData = await addTaskApi(task);
-  console.log(taskData)
   dispatch(addAction(taskData));
 };
 
@@ -34,8 +36,8 @@ const undoneTaskAsync = (id) => {
     } catch (err) {
       console.log(err);
     }
-  }
-}
+  };
+};
 
 module.exports = {
   addTaskAsync,

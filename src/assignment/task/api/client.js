@@ -18,7 +18,6 @@ async function client(endpoint, { method, body, ...customConf } = {}) {
   try {
     const response = await window.fetch(endpoint, config);
     data = await response.json();
-    console.log(data);
     if (!response.ok) {
       throw new Error(data.statusText);
     }
@@ -34,7 +33,6 @@ client.get = (endpoint, customConf = {}) => {
 };
 
 client.post = (endpoint, body, customConf = {}) => {
-  console.log(endpoint)
   return client(endpoint, { method: 'POST', body, ...customConf });
 };
 

@@ -7,7 +7,7 @@ const { Client } = require('minio');
 const { create } = require('../task/controllers/task.service');
 // save data worker
 
-const host = '127.0.0.1' 
+const host = '192.168.0.8'; 
 const port = 9000
 const client = new Client({
   endPoint: host,

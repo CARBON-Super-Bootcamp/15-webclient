@@ -57,44 +57,35 @@ class TaskController {
             data.attachment =
               'localhost:9998/attachment/' +
               (await saveFile(file, mimetype, folder));
-            console.log(data.attachment);
           } catch (err) {
+            console.log(err);
             abort();
+            return;
           }
 
           if (finished) {
             try {
               const task = register(data); // add insert task here
-              res.setHeader('content-type', 'application/json');
-              res.write(
-                JSON.stringify({
-                  status: 'success',
-                  message: 'success add data',
-                })
-              );
-
               messageBus = {
                 status: 'success',
                 message: 'success add task',
               };
+
+              res.write(
+                JSON.stringify(task)
+              );
+
               nats.publish('task.create', messageBus);
-              res.end();
             } catch (err) {
               //add error handling
-              // if (err === ERROR_REGISTER_DATA_INVALID) {
-              //   res.statusCode = 401;
-              // } else {
-              //   res.statusCode = 500;
-              // }
               messageBus = {
                 status: 'error',
                 message: 'error add task',
               };
               res.write('401');
-              res.end();
             }
             // nats.publish('task.create', messageBus);
-            // res.end();
+            res.end();
           }
           break;
         default: {
@@ -150,7 +141,7 @@ class TaskController {
     const id = +req.params.id;
     let messageBus;
     try {
-      const result = await completedTask(id);
+      await completedTask(id);
       res.statusCode = 200;
       res.write(
         JSON.stringify({

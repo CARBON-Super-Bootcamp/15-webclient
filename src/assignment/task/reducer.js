@@ -1,7 +1,9 @@
 // setup state
 const initialState = [
-  { id: 1, task: 'main', done: false },
-  { id: 2, task: 'minum', done: true },
+  // { id: 1, task: 'main', done: false },
+  // { id: 2, task: 'minum', done: true },
+  {id: 1, name: 'makan', isCompleted: false, isDeleted: false},
+  {id: 2, name: 'minum', isCompleted: false, isDeleted: false}
 ];
 
 // reduce function

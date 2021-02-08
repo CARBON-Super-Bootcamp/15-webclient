@@ -5,8 +5,7 @@ async function fetchTasksApi() {
 }
 
 async function addTaskApi(task) {
-  console.log('add task api')
-  return await client.post('http://localhost:9998/add', { task });
+  return await client.post('http://localhost:9998/task', { task });
 }
 
 async function doneTaskApi(id) {

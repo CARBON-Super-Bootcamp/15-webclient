@@ -3,12 +3,11 @@ const { write,read,destroy,finish } = require('../models/task-model');
 async function register(data){
     try {
         const task = {  
-            assignee_id :data.assigneeId,
+            assignee_id : +data.assigneeId,
             name: data.name,
             attachment:  data.attachment,
         }
-        await write(task);
-        return;
+        return await write(task);
     } catch (error) {
         throw error
     }
