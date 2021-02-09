@@ -8,7 +8,9 @@ const {
 } = require('./store');
 
 const addTaskAsync = (task) => async (dispatch, getState) => {
+  console.log('task asyn')
   const taskData = await addTaskApi(task);
+  console.log(taskData)
   dispatch(addAction(taskData));
 };
 
