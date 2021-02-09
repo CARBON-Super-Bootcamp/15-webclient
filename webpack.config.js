@@ -2,8 +2,9 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    main: './src/main.js',
+    main: './src/assignment/main.js',
     assignment: './src/assignment/main.js',
+    task: './src/assignment/task/app.js',
   },
   output: {
     path: path.resolve(__dirname, 'www'),
@@ -11,7 +12,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './www',
+    contentBase: './www/assignment',
     port: 5757,
   },
   module: {

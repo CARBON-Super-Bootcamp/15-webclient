@@ -47,12 +47,13 @@ function saveWorker(req, res) {
                 //send to bussines logic layer
                 if (finished) {
                   try {
-                    const worker = register(data); 
+                    const worker = await register(data); 
                     
                     res.setHeader('content-type', 'application/json');
                     res.write(JSON.stringify({
                         status: 'success',
                         message: 'success add data',
+                        data:worker
                     }));
 
                     messageBus = {

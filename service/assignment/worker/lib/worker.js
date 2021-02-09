@@ -15,7 +15,10 @@ async function register(data){
         biografi: data.biografi,
         photo: data.photo,
     }
-    await workerModel.write(worker);
+
+    const result  = await workerModel.write(worker);
+    const row = result.toJSON();
+    return row;
    
 }
 
