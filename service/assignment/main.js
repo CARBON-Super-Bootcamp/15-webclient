@@ -3,8 +3,8 @@ const workerServer = require('./worker/server');
 const performanceServer = require('./performance/server');
 
 const { connection } = require('./database/relational/connection');
-const nats = require('./message/nats');
-const subscriber = require('./performance/nats-sub');
+// const nats = require('./message/nats');
+// const subscriber = require('./performance/nats-sub');
 /**
  * main routine
  * @returns {Promise<void>}
@@ -24,7 +24,7 @@ async function main(command) {
       break;
     case 'performance':
       // await nats.connect();
-      subscriber.init();
+      // subscriber.init();
       performanceServer.run();
       break;
     default:

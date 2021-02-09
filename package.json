@@ -7,9 +7,8 @@
     "build": "webpack --mode production",
     "dev": "webpack serve --open --mode development",
     "lint": "eslint .",
-    "service": "nodemon service/assignment/main.js",
     "migrate": "node ./service/assignment/database/relational/migrations/main.js",
-    "service2": "nodemon service/server.js"
+    "service": "node service/assignment/main.js",
   },
   "author": "",
   "license": "ISC",
@@ -29,21 +28,21 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
-    "nodemon": "^2.0.7",
-    "pg": "^8.5.1",
-    "pg-cursor": "^2.5.2",
-    "pg-hstore": "^2.3.3",
-    "redux-thunk": "^2.3.0",
-    "rxjs": "^6.6.3",
-    "typeorm": "^0.2.30",
     "busboy": "^0.3.1",
     "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
     "mime-types": "^2.1.28",
     "minio": "^7.0.18",
     "nats": "^1.4.12",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
+    "pg-cursor": "^2.5.2",
+    "pg-hstore": "^2.3.3",
     "redis": "^3.0.2",
+    "redux-thunk": "^2.3.0",
+    "rxjs": "^6.6.3",
     "sequelize": "^6.5.0",
-    "sinon": "^9.2.3"
+    "sinon": "^9.2.3",
+    "typeorm": "^0.2.30"
   }
 }
