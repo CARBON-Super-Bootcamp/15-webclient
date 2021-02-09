@@ -5,7 +5,7 @@ async function listWorkerApi() {
 }
 
 async function addWorkerApi(worker) {
-  return await client.post('http://localhost:9999/worker', { worker });
+  return await client.post('http://localhost:9999/worker', worker);
 }
 
 async function deleteWorkerApi(id) {

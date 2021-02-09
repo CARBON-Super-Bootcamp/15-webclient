@@ -4,16 +4,20 @@ const {
     configureStore,
   } = require('@reduxjs/toolkit');
 
-  const { initialState, add, loadWorker} = require('./reducer');
+  const { initialState, add, loadWorker, deleteWorker} = require('./reducer');
   const {asyncMiddleware} = require('./middleware')
   
   const addAction = createAction('add');
   const loadDataAction = createAction('loadData');
+  const deleteWorkerAction = createAction('deleteData');
+
 
   
   const workerReducer = createReducer(initialState, {
     [addAction]: add,
-    [loadDataAction]: loadWorker
+    [loadDataAction]: loadWorker,
+    [deleteWorkerAction]: deleteWorker,
+
   });
   
   const store$ = configureStore({
@@ -25,5 +29,6 @@ const {
     store$,
     addAction,
     loadDataAction,
+    deleteWorkerAction,
   };
   

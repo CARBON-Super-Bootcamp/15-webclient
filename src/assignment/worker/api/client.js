@@ -1,5 +1,5 @@
 async function client(endpoint, { method, body, ...customConf } = {}) {
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = {};
   
     const config = {
       method,
@@ -11,7 +11,7 @@ async function client(endpoint, { method, body, ...customConf } = {}) {
     };
   
     if (body) {
-      config.body = JSON.stringify(body);
+      config.body = body;
     }
   
     let data;

@@ -1,14 +1,16 @@
 require('./styles.css');
 const { store$ } = require('./store');
 const {loadTable} = require('./view');
-const {getListWorker} = require('./worker-client')
+const {getListWorker,registerWorker,registerWorkerData} = require('./worker-client')
 
 
 const form = document.getElementById('form');
 
 form.onsubmit = (event) => {
     event.preventDefault();
-    store$.dispatch(addTaskAsync(task));
+    const worker = registerWorkerData();    
+    store$.dispatch(registerWorker(worker));
+    form.reset();
 };
 
 store$.subscribe(() => {
@@ -17,4 +19,3 @@ store$.subscribe(() => {
 });
 
 store$.dispatch(getListWorker);
-

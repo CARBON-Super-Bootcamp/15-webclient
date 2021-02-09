@@ -16,7 +16,7 @@ const initialState = [
   
   // reduce function
   function add(state, action) {
-    state.push({ id: action.payload.id, task: action.payload.task, done: false });
+    state.push(action.payload.data);
     return state;
   }
 
@@ -25,10 +25,16 @@ const initialState = [
     return state;
   }
   
+  function deleteWorker(state, action) {
+    const workers = state.filter((t) => t.id !== action.payload)
+    state = workers;
+    return state;
+  }
   
   module.exports = {
     initialState,
     add,
-    loadWorker
+    loadWorker,
+    deleteWorker
   };
   
