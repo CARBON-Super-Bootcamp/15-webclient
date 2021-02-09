@@ -7,7 +7,8 @@ async function register(data){
             name: data.name,
             attachment:  data.attachment,
         }
-        return await write(task);
+        const result = await write(task);
+        return result.toJSON();
     } catch (error) {
         throw error
     }

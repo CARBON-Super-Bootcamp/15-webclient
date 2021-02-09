@@ -50,6 +50,7 @@ class TaskController {
     });
 
     busboy.on('file', async (fieldname, file, filename, encoding, mimetype) => {
+      console.log(file)
       switch (fieldname) {
         case 'attachment':
           try {
@@ -65,7 +66,7 @@ class TaskController {
 
           if (finished) {
             try {
-              const task = register(data); // add insert task here
+              const task = await register(data); // add insert task here
               messageBus = {
                 status: 'success',
                 message: 'success add task',

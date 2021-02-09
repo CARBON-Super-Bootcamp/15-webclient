@@ -12,18 +12,6 @@ function add(state, action) {
   return state;
 }
 
-function done(state, action) {
-  const task = state.find((t) => t.id === action.payload);
-  task.done = true;
-  return state;
-}
-
-function undone(state, action) {
-  const task = state.find((t) => t.id === action.payload);
-  task.done = false;
-  return state;
-}
-
 function loadTasks(state, action) {
   state = action.payload;
   return state;
@@ -32,7 +20,5 @@ function loadTasks(state, action) {
 module.exports = {
   initialState,
   add,
-  done,
-  undone,
   loadTasks,
 };
