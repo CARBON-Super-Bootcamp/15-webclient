@@ -8,7 +8,7 @@
     "dev": "webpack serve --open --mode development",
     "lint": "eslint .",
     "migrate": "node ./service/assignment/database/relational/migrations/main.js",
-    "service": "node service/assignment/main.js",
+    "service": "node service/assignment/main.js"
   },
   "author": "",
   "license": "ISC",
