@@ -6,6 +6,22 @@
   "configurations": [
 
     {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Service",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/service/assignment/main.js",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "service",
+        "task"
+      ],
+    },
+    {
       "type": "chrome",
       "request": "launch",
       "name": "chrome",

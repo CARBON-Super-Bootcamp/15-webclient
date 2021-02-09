@@ -1,5 +1,5 @@
 async function client(endpoint, { method, body, ...customConf } = {}) {
-  const headers = { 'Content-Type': 'application/json' };
+  const headers = {};
 
   const config = {
     method,
@@ -11,18 +11,19 @@ async function client(endpoint, { method, body, ...customConf } = {}) {
   };
 
   if (body) {
-    config.body = JSON.stringify(body);
+    config.body = body;
   }
 
   let data;
   try {
+    console.log(endpoint, config)
     const response = await window.fetch(endpoint, config);
     data = await response.json();
-    console.log(data);
     if (!response.ok) {
       throw new Error(data.statusText);
     }
 
+    // console.log(data)
     return data;
   } catch (err) {
     return Promise.reject(err.message || data);
@@ -34,7 +35,6 @@ client.get = (endpoint, customConf = {}) => {
 };
 
 client.post = (endpoint, body, customConf = {}) => {
-  console.log(endpoint)
   return client(endpoint, { method: 'POST', body, ...customConf });
 };
 

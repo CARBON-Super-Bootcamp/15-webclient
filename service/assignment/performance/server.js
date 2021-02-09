@@ -1,7 +1,7 @@
 const { createServer } = require('http');
 const { stdout } = require('process');
 
-const routers = require('./routers')
+const routers = require('./routers');
 
 function run(){
     const server = createServer((req, res) => {
@@ -25,9 +25,9 @@ function run(){
 }
 
 function stop() {
-    if (server) {
-        server.close()
-    }
+  if (server) {
+    server.close();
+  }
 }
 
-module.exports = {run,stop}
+module.exports = { run, stop };
